@@ -1,0 +1,26 @@
+library ieee; 
+use IEEE.STD_LOGIC_1164.ALL; 
+
+-- aqui foi criado um mux 2:1 com portas logicas para ser utilizado no sistema de dividisao
+ENTITY rede_combinacional IS 
+PORT (A_rede,B_rede, C_rede: in std_logic;
+ Y_mux2_1: out std_logic);
+END rede_combinacional; 
+
+
+ARCHITECTURE dataflow OF rede_combinacional IS 
+SIGNAL temp1, temp2: std_logic;
+BEGIN 
+
+Kx <= (NOT A_rede) AND B_rede AND C_rede;
+Ky <= (NOT A_rede) AND (NOT B_rede) AND C_rede;
+Kmx <= ((NOT A_rede) AND (NOT B_rede)) OR (A_rede AND B_rede AND C_rede);
+C0 <= ((NOT A_rede) AND C_rede) OR ((NOT A_rede) AND B_rede);
+S0-dmx1 <= ((NOT A_rede) OR (B_rede AND (NOT C_rede));
+S1-dmx1 <= A_rede AND (NOT B_rede); 
+S0-dmx2 <= NOT A_rede;
+
+
+END dataflow;
+
+

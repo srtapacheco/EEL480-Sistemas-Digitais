@@ -1,0 +1,32 @@
+library ieee; 
+use IEEE.STD_LOGIC_1164.ALL; 
+
+-- aqui foi criado um mux 2:1 com portas logicas para ser utilizado no sistema de dividisao
+ENTITY mux16_4 IS 
+PORT (I0_mux4_116,I1_mux4_116,I2_mux4_116,I3_mux4_116, S0_controle_mux4_116,S1_controle_mux4_116: out std_logic;
+ Y0_mux4_116,Y1_mux4_116,Y2_mux4_116,Y3_mux4_116,Y4_mux4_116,Y5_mux4_116,Y6_mux4_116,Y7_mux4_116,Y8_mux4_116,
+ Y9_mux4_116,Y10_mux4_116,Y11_mux4_116,Y12_mux4_116,Y13_mux4_116,Y14_mux4_116,Y15_mux4_116: in std_logic);
+END mux16_4; 
+
+
+ARCHITECTURE dataflow OF mux16_4 IS 
+
+
+component mux4_1
+PORT (A0_mux4_1,A1_mux4_1, A2_mux4_1, A3_mux4_1, S0_mux4_1,S1_mux4_1: in std_logic;
+ Y_mux4_1: out std_logic);
+end component;
+
+BEGIN
+
+sc0x_mux1: mux4_1 PORT MAP(I0_mux4_116,S0_controle_mux4_116,S1_controle_mux4_116,Y0_mux4_116,Y1_mux4_116,Y2_mux4_116,Y3_mux4_116);
+sc1x_mux1: mux4_1 PORT MAP(I1_mux4_116,S0_controle_mux4_116,S1_controle_mux4_116,Y4_mux4_116,Y5_mux4_116,Y6_mux4_116,Y7_mux4_116);
+sc2x_mux1: mux4_1 PORT MAP(I2_mux4_116,S0_controle_mux4_116,S1_controle_mux4_116,Y8_mux4_116,Y9_mux4_116,Y10_mux4_116,Y11_mux4_116);
+sc3x_mux1: mux4_1 PORT MAP(I3_mux4_116,S0_controle_mux4_116,S1_controle_mux4_116,Y12_mux4_116,Y13_mux4_116,Y14_mux4_116,Y15_mux4_116);
+
+
+
+
+END dataflow;
+
+

@@ -1,0 +1,19 @@
+library ieee; 
+use IEEE.STD_LOGIC_1164.ALL; 
+
+ENTITY complementador IS 
+PORT (B,K: in std_logic;
+ A: out std_logic);
+END complementador; 
+
+
+ARCHITECTURE dataflow OF complementador IS 
+
+BEGIN 
+
+A <= B XOR K;
+
+
+END dataflow;
+
+

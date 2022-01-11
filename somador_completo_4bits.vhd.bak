@@ -1,0 +1,31 @@
+library ieee; 
+use IEEE.STD_LOGIC_1164.ALL; 
+
+
+ENTITY somador_completo_4bits IS 
+PORT (A1,A2,A3,A4,B1,B2,B3,B4,C0: in std_logic;
+ S1,S2,S3,S4,COUT4: out std_logic);
+END somador_completo_4bits; 
+
+
+
+Architecture structural of somador_completo_4bits is
+SIGNAL C1, C2, C3: std_logic;
+
+component somador_completo1bit
+PORT(A: in std_logic; 
+ B: in std_logic;
+ cin: in std_logic; 
+ cout: out std_logic;
+ result: out std_logic); 
+end component;
+
+
+BEGIN
+sc1: somador_completo1bit PORT MAP(A1, B1, C0,C1,S1);
+sc2: somador_completo1bit PORT MAP(A2, B2, C1,C2,S2);
+sc3: somador_completo1bit PORT MAP(A3, B3, C2,C3,S3);
+sc4: somador_completo1bit PORT MAP(A4, B4, C3,COUT4,S4);
+
+
+End structural;
