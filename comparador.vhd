@@ -1,7 +1,6 @@
 library ieee; 
 use IEEE.STD_LOGIC_1164.ALL; 
 
--- aqui foi criado um mux 4:1 com portas logicas para ser utilizado no sistema de dividisao
 ENTITY comparador IS 
 PORT (X0,X1,X2,X3,Y0,Y1,Y2,Y3,cinG,cinE,cinS: in std_logic;
  zG,zE,zS: out std_logic);
