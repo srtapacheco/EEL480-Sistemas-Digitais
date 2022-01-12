@@ -1,7 +1,6 @@
 library ieee; 
 use IEEE.STD_LOGIC_1164.ALL; 
 
--- aqui foi criado um mux 2:1 com portas logicas para ser utilizado no sistema de dividisao
 ENTITY decodificador_binario_BCD IS 
 PORT (A0,A1,A2,A3: in std_logic;
  B0,B1,B2,B3,B4: out std_logic);
